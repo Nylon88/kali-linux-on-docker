@@ -39,4 +39,4 @@ docker container stop [コンテナのID]
 // imageをpullした時のエラー
 docker: Error response from daemon: pull access denied for repository does not exist or may require ‘docker login’
 docker hub にlog in する必要がある。
-または、ソースが存在しない
+または、ソースが存在しない為docker hubを確認して存在するiamgeをpullする必要がある。
