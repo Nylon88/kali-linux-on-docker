@@ -9,7 +9,7 @@ docker image ls
 ※ [kali-linux-image] = この時のiamgeの名前
 
 // kali linuxのコンテナをデーモンで起動する
-docker run -itd --rm [kali-linux-image]
+docker run -itd [kali-linux-image]
 ※ [コンテナのID] = この時表示されるコンテナのID
 
 // コンテナ内のshellを起動してrootでログインする
