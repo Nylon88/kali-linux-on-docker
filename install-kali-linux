@@ -1,5 +1,8 @@
+"""
+ubuntu上での実行コマンド
+"""
 // kali linuxのimageを取得する
-docker pull kalilinux/kali-linux-docker
+docker pull kalilinux/kali-rolling
 
 // kali linuxのimageが取得できたか確認する
 docker image ls
@@ -14,13 +17,26 @@ docker exec -it [コンテナのID] /bin/bash
 
 
 """
-ここからはコンテナ内での実行コマンド
+コンテナ内での実行コマンド
 """
 // kali linuxのフルパッケージをインストールする
-apt-get install -y kali-linux-full
+apt-get update && apt-get install metasploit-framework
 
+
+"""
+開発後のコンテナの処理
+"""
 // コンテナを新しいimageとして保存する
 docker commit [コンテナのID] [作成するimageの名前]
 
 // コンテナの停止
 docker container stop [コンテナのID]
+
+
+"""
+トラブルシューティング
+"""
+// imageをpullした時のエラー
+docker: Error response from daemon: pull access denied for repository does not exist or may require ‘docker login’
+docker hub にlog in する必要がある。
+または、ソースが存在しない
