@@ -1,0 +1,26 @@
+// kali linuxのimageを取得する
+docker pull kalilinux/kali-linux-docker
+
+// kali linuxのimageが取得できたか確認する
+docker image ls
+※ [kali-linux-image] = この時のiamgeの名前
+
+// kali linuxのコンテナをデーモンで起動する
+docker run -itd --rm [kali-linux-image]
+※ [コンテナのID] = この時表示されるコンテナのID
+
+// コンテナ内のshellを起動してrootでログインする
+docker exec -it [コンテナのID] /bin/bash
+
+
+"""
+ここからはコンテナ内での実行コマンド
+"""
+// kali linuxのフルパッケージをインストールする
+apt-get install -y kali-linux-full
+
+// コンテナを新しいimageとして保存する
+docker commit [コンテナのID] [作成するimageの名前]
+
+// コンテナの停止
+docker container stop [コンテナのID]
